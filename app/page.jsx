@@ -12,14 +12,14 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-slate-900">
         <video
           className="absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
-          poster="/uploads/2026/04/kashmir.jpg"
+          preload="auto"
         >
           <source src="/home.mp4" type="video/mp4" />
         </video>
