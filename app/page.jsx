@@ -13,23 +13,18 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden">
-        <Image
-          src="/uploads/2026/04/kashmir.jpg"
-          alt="Scenic Kashmir — Ladakh"
-          fill
-          priority
-          className="object-cover animate-hero-zoom"
-        />
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/uploads/2026/04/kashmir.jpg"
+        >
+          <source src="/home.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/40 to-slate-900/70" />
         <div className="container-page relative z-10 animate-fade-up text-center text-white">
-            <Image
-              src="/logo.png"
-              alt="The Get Set Go Holidays"
-              width={256}
-              height={256}
-              priority
-              className="mx-auto mb-6 h-40 w-40 object-contain drop-shadow-lg sm:h-52 sm:w-52 lg:h-64 lg:w-64"
-            />
             <span className="animate-gradient mb-4 inline-block rounded-full bg-gradient-to-r from-brand-500 via-accent-500 to-brand-500 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-lg">
               Your Trusted Travel Partner
             </span>

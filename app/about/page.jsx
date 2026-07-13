@@ -35,15 +35,20 @@ export default function AboutPage() {
             <p className="mt-4 text-slate-600 dark:text-slate-300">
               At {`The Get Set Go Holidays`}, we believe travel is more than just
               visiting places — it&apos;s about creating unforgettable memories.
-              We provide complete travel solutions designed to make your journey
-              smooth, enjoyable and completely hassle-free.
+              We are dedicated to providing smooth, comfortable and affordable
+              travel experiences for every customer.
             </p>
             <p className="mt-4 text-slate-600 dark:text-slate-300">
-              From customized tour packages tailored to your preferences to
-              seamless hotel bookings, reliable taxi services, punctual airport
-              transfers and end-to-end trip planning, we take care of every
-              detail. Our mission is to make travel simple, reliable and
-              enjoyable with a customer-first approach.
+              We offer complete travel solutions including customized tour
+              packages, hotel bookings, taxi services, airport transfers and full
+              trip planning. Whether you&apos;re planning a family vacation,
+              honeymoon, group tour or business trip, we make sure every detail is
+              handled with care.
+            </p>
+            <p className="mt-4 text-slate-600 dark:text-slate-300">
+              Our mission is to make travel simple, reliable and enjoyable. With a
+              customer-first approach and trusted services, we ensure every
+              journey with us becomes special and hassle-free.
             </p>
             <Link href="/contact" className="btn-primary mt-7">
               Plan With Us
