@@ -22,7 +22,7 @@ export default function HomePage() {
           playsInline
           preload="auto"
         >
-          <source src="/home.mp4" type="video/mp4" />
+          <source src="/herosection.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/40 to-slate-900/70" />
         <div className="container-page relative z-10 animate-fade-up text-center text-white">
@@ -124,7 +124,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {international.slice(0, 6).map((d) => (
+            {international.slice(0, 9).map((d) => (
               <DestinationCard key={d.slug} dest={d} />
             ))}
           </div>

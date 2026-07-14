@@ -28,6 +28,12 @@ export default function Footer() {
             <a href={site.social.youtube} aria-label="YouTube" className="rounded-full bg-white/10 p-2 hover:bg-brand-600">
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23 7.5c-.3-1-1-1.7-2-2C19 5 12 5 12 5s-7 0-9 .5c-1 .3-1.7 1-2 2C.5 9.5.5 12 .5 12s0 2.5.5 4.5c.3 1 1 1.7 2 2C5 19 12 19 12 19s7 0 9-.5c1-.3 1.7-1 2-2 .5-2 .5-4.5.5-4.5s0-2.5-.5-4.5zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg>
             </a>
+            <a href={site.social.linkedin} aria-label="LinkedIn" className="rounded-full bg-white/10 p-2 hover:bg-brand-600">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.37-3.9-2.38 0-2.74 1.86-2.74 3.78V24h-4V8z"/></svg>
+            </a>
+            <a href={site.social.x} aria-label="X" className="rounded-full bg-white/10 p-2 hover:bg-brand-600">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.9 1.2h3.7l-8 9.1L24 22.8h-7.4l-5.8-7.6-6.6 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9zm-1.3 19.4h2L6.5 3.3H4.4l13.2 17.3z"/></svg>
+            </a>
             <a href={site.social.whatsapp} aria-label="WhatsApp" className="rounded-full bg-white/10 p-2 hover:bg-brand-600">
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.1 23.9 2.4 17c-.5-1-.8-2-.8-3.1C1.6 8.6 6.2 4 12.1 4c2.7 0 5.2 1 7.1 2.9 1.9 1.9 2.9 4.4 2.9 7.1 0 5.9-4.6 10.5-10.5 10.5-1.4 0-2.7-.3-3.9-.8L.1 23.9zm6.3-3.2 1.1-.2c1-.3 1.9-.8 2.7-1.5l1.3-.9-1-1.3-.6.4c-.6.4-1.1.6-1.6.6-.5 0-.8-.1-1-.4-.2-.2-.4-.5-.5-1 0-.3.1-.7.4-1.1l.3-.5-1.2-1.6c-.5-.7-.8-1.3-.8-1.9 0-.8.4-1.5 1.1-2 .4-.3.9-.5 1.5-.5.3 0 .6 0 1 .1.3.1.6.3.9.5l.7.5c.3.2.5.4.6.5l.3-.2c.4-.3.8-.5 1.2-.6.4-.1.8-.2 1.2-.1.6.1 1.1.5 1.4 1 .3.6.4 1.3.3 2 0 .6-.2 1.2-.5 1.8-.3.6-.6 1.1-1 1.6-.5.5-1 .9-1.6 1.3-.6.4-1.2.7-1.8 1-.4.2-.8.3-1.1.4l-1 .3z"/></svg>
             </a>
