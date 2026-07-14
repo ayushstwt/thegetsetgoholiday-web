@@ -3,6 +3,7 @@ import Image from "next/image";
 import { destinations, services, site, blog } from "../lib/data";
 import DestinationCard from "../components/DestinationCard";
 import BlogCard from "../components/BlogCard";
+import BookNowForm from "../components/BookNowForm";
 import Icon from "../components/Icon";
 
 export default function HomePage() {
@@ -47,20 +48,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-brand-700 text-white">
-        <div className="container-page grid grid-cols-2 gap-6 py-10 reveal sm:grid-cols-4">
-          {[
-            ["5+", "Years of Experience"],
-            ["1000+", "Tours Completed"],
-            ["74k", "Visa Assistance"],
-            ["10k+", "Hotel Bookings"],
-          ].map(([n, l]) => (
-            <div key={l} className="text-center">
-              <div className="text-3xl font-extrabold sm:text-4xl">{n}</div>
-              <div className="mt-1 text-sm text-brand-100">{l}</div>
+      {/* Book Now */}
+      <section className="relative z-20 -mt-20 sm:-mt-24">
+        <div className="container-page">
+          <div className="card overflow-hidden !p-0 shadow-2xl">
+            <div className="grid gap-0 md:grid-cols-[1fr_2.4fr]">
+              <div className="flex flex-col justify-center gap-1.5 bg-gradient-to-br from-brand-600 to-brand-800 px-6 py-5 text-white">
+                <span className="animate-gradient inline-block w-fit rounded-full bg-gradient-to-r from-accent-500 via-brand-400 to-accent-500 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider shadow">
+                  Quick Enquiry
+                </span>
+                <h2 className="text-xl font-extrabold leading-tight">
+                  Book Your Trip
+                </h2>
+                <p className="text-sm text-brand-100">
+                  Share a few details and our team will craft the perfect plan for you.
+                </p>
+              </div>
+              <div className="p-5 sm:p-6">
+                <BookNowForm />
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -69,7 +77,7 @@ export default function HomePage() {
         <div className="container-page grid items-center gap-10 lg:grid-cols-2">
           <div className="relative reveal">
             <img
-              src="/uploads/2026/04/rajasthan.jpg"
+              src="/White-Blue-Exciting-Travel-Photo-Collage.png"
               alt="Incredible India travel"
               className="rounded-2xl shadow-xl"
             />

@@ -45,10 +45,10 @@ body {
     @apply bg-brand-500/15 text-brand-300;
   }
   .card {
-    @apply overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-xl;
+    @apply overflow-hidden rounded-2xl border border-white/40 bg-white/60 shadow-md ring-1 ring-white/40 backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-xl;
   }
   .dark .card {
-    @apply bg-slate-800 ring-slate-700;
+    @apply border-white/10 bg-slate-800/50 ring-white/10;
   }
 }
 
