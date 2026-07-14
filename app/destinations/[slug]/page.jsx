@@ -3,6 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { destinations, getDestination } from "../../../lib/data";
 import DestinationCard from "../../../components/DestinationCard";
+import VaranasiSection from "../../../components/VaranasiSection";
+import ImageGallery from "../../../components/ImageGallery";
 
 export function generateStaticParams() {
   return destinations.map((d) => ({ slug: d.slug }));
@@ -55,20 +57,7 @@ export default function DestinationDetail({ params }) {
             </ul>
 
             <h3 className="mt-8 text-xl font-bold text-slate-900">Gallery</h3>
-            <div className="mt-4 grid gap-4 sm:grid-cols-3">
-              {dest.gallery.map((g, i) => (
-                <div key={i} className="relative h-40 overflow-hidden rounded-xl shadow">
-                  <Image
-                    src={g}
-                    alt={`${dest.name} ${i + 1}`}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+            <ImageGallery images={dest.gallery} name={dest.name} />
           </div>
 
           <aside className="lg:col-span-1">
@@ -95,6 +84,8 @@ export default function DestinationDetail({ params }) {
           </aside>
         </div>
       </section>
+
+      {dest.slug === "varanasi" && <VaranasiSection />}
 
       {related.length > 0 && (
         <section className="bg-slate-50 py-14 dark:bg-slate-800">

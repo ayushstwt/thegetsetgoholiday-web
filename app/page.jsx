@@ -7,7 +7,7 @@ import BookNowForm from "../components/BookNowForm";
 import Icon from "../components/Icon";
 
 export default function HomePage() {
-  const international = destinations.filter((d) => d.region === "international");
+  const international = destinations.filter((d) => d.region === "international" && d.slug !== "paris");
   const domestic = destinations.filter((d) => d.region === "domestic");
 
   return (
