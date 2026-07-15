@@ -54,11 +54,15 @@ export default function BlogDetail({ params }) {
             {post.excerpt}
           </p>
           <div className="mt-6 space-y-5 text-slate-600 dark:text-slate-300">
-            {post.content.map((para, i) => (
-              <p key={i} className="leading-relaxed">
-                {para}
-              </p>
-            ))}
+            {post.content.map((para, i) => {
+              if (para.startsWith("### ")) {
+                return <h3 key={i} className="text-xl font-bold text-slate-900 dark:text-white">{para.slice(4)}</h3>;
+              }
+              if (para.startsWith("## ")) {
+                return <h2 key={i} className="text-2xl font-extrabold text-slate-900 dark:text-white">{para.slice(3)}</h2>;
+              }
+              return <p key={i} className="leading-relaxed">{para}</p>;
+            })}
           </div>
 
           <div className="mt-10 rounded-2xl bg-brand-50 p-6 text-center shadow-md ring-1 ring-brand-100 dark:bg-slate-800 dark:ring-slate-700">
