@@ -30,7 +30,13 @@ export default function DestinationDetail({ params }) {
   return (
     <>
       <section className="relative flex h-[60vh] min-h-[420px] items-end overflow-hidden">
-        <Image src={dest.image} alt={dest.name} fill priority className="object-cover" />
+        <Image
+          src={dest.slug === "varanasi" ? "https://images.unsplash.com/photo-1706186924707-d2acc3bd979a?w=1920&q=80" : dest.image}
+          alt={dest.name}
+          fill
+          priority
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-slate-900/20" />
         <div className="container-page relative z-10 pb-10 text-white">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent-400">
@@ -56,32 +62,38 @@ export default function DestinationDetail({ params }) {
               ))}
             </ul>
 
-            <h3 className="mt-8 text-xl font-bold text-slate-900">Gallery</h3>
-            <ImageGallery images={dest.gallery} name={dest.name} />
+            {dest.slug !== "varanasi" && (
+              <>
+                <h3 className="mt-8 text-xl font-bold text-slate-900">Gallery</h3>
+                <ImageGallery images={dest.gallery} name={dest.name} />
+              </>
+            )}
           </div>
 
-          <aside className="lg:col-span-1">
-            <div className="sticky top-24 rounded-2xl bg-brand-50 p-6 shadow-md ring-1 ring-brand-100 dark:bg-slate-800 dark:ring-slate-700">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Trip Snapshot</h3>
-              <dl className="mt-4 space-y-3 text-sm">
-                <div className="flex justify-between border-b border-brand-100 pb-2 dark:border-slate-700">
-                  <dt className="text-slate-500 dark:text-slate-400">Best Time</dt>
-                  <dd className="font-semibold text-slate-800 dark:text-slate-200">{dest.bestTime}</dd>
-                </div>
-                <div className="flex justify-between border-b border-brand-100 pb-2 dark:border-slate-700">
-                  <dt className="text-slate-500 dark:text-slate-400">Duration</dt>
-                  <dd className="font-semibold text-slate-800 dark:text-slate-200">{dest.duration}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-slate-500 dark:text-slate-400">Price</dt>
-                  <dd className="font-semibold text-brand-700 dark:text-brand-300">{dest.price}</dd>
-                </div>
-              </dl>
-              <Link href="/contact" className="btn-primary mt-6 w-full">
-                Enquire Now
-              </Link>
-            </div>
-          </aside>
+          {dest.slug !== "varanasi" && (
+            <aside className="lg:col-span-1">
+              <div className="sticky top-24 rounded-2xl bg-brand-50 p-6 shadow-md ring-1 ring-brand-100 dark:bg-slate-800 dark:ring-slate-700">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Trip Snapshot</h3>
+                <dl className="mt-4 space-y-3 text-sm">
+                  <div className="flex justify-between border-b border-brand-100 pb-2 dark:border-slate-700">
+                    <dt className="text-slate-500 dark:text-slate-400">Best Time</dt>
+                    <dd className="font-semibold text-slate-800 dark:text-slate-200">{dest.bestTime}</dd>
+                  </div>
+                  <div className="flex justify-between border-b border-brand-100 pb-2 dark:border-slate-700">
+                    <dt className="text-slate-500 dark:text-slate-400">Duration</dt>
+                    <dd className="font-semibold text-slate-800 dark:text-slate-200">{dest.duration}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-slate-500 dark:text-slate-400">Price</dt>
+                    <dd className="font-semibold text-brand-700 dark:text-brand-300">{dest.price}</dd>
+                  </div>
+                </dl>
+                <Link href="/contact" className="btn-primary mt-6 w-full">
+                  Enquire Now
+                </Link>
+              </div>
+            </aside>
+          )}
         </div>
       </section>
 
