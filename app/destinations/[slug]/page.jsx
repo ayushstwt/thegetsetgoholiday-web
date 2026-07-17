@@ -1,10 +1,9 @@
-import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { destinations, getDestination } from "../../../lib/data";
 import DestinationCard from "../../../components/DestinationCard";
 import VaranasiSection from "../../../components/VaranasiSection";
-import ImageGallery from "../../../components/ImageGallery";
+import DestinationSection from "../../../components/DestinationSection";
 
 export function generateStaticParams() {
   return destinations.map((d) => ({ slug: d.slug }));
@@ -48,56 +47,22 @@ export default function DestinationDetail({ params }) {
       </section>
 
       <section className="py-14">
-        <div className="container-page grid gap-10 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Overview</h2>
-            <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">{dest.summary}</p>
+        <div className="container-page">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Overview</h2>
+          <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">{dest.summary}</p>
 
-            <h3 className="mt-8 text-xl font-bold text-slate-900 dark:text-white">Highlights</h3>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {dest.highlights.map((h) => (
-                <li key={h} className="flex items-start gap-2 text-slate-700 dark:text-slate-300">
-                  <span className="mt-1 text-accent-500">★</span> {h}
-                </li>
-              ))}
-            </ul>
-
-            {dest.slug !== "varanasi" && (
-              <>
-                <h3 className="mt-8 text-xl font-bold text-slate-900">Gallery</h3>
-                <ImageGallery images={dest.gallery} name={dest.name} />
-              </>
-            )}
-          </div>
-
-          {dest.slug !== "varanasi" && (
-            <aside className="lg:col-span-1">
-              <div className="sticky top-24 rounded-2xl bg-brand-50 p-6 shadow-md ring-1 ring-brand-100 dark:bg-slate-800 dark:ring-slate-700">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Trip Snapshot</h3>
-                <dl className="mt-4 space-y-3 text-sm">
-                  <div className="flex justify-between border-b border-brand-100 pb-2 dark:border-slate-700">
-                    <dt className="text-slate-500 dark:text-slate-400">Best Time</dt>
-                    <dd className="font-semibold text-slate-800 dark:text-slate-200">{dest.bestTime}</dd>
-                  </div>
-                  <div className="flex justify-between border-b border-brand-100 pb-2 dark:border-slate-700">
-                    <dt className="text-slate-500 dark:text-slate-400">Duration</dt>
-                    <dd className="font-semibold text-slate-800 dark:text-slate-200">{dest.duration}</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="text-slate-500 dark:text-slate-400">Price</dt>
-                    <dd className="font-semibold text-brand-700 dark:text-brand-300">{dest.price}</dd>
-                  </div>
-                </dl>
-                <Link href="/contact" className="btn-primary mt-6 w-full">
-                  Enquire Now
-                </Link>
-              </div>
-            </aside>
-          )}
+          <h3 className="mt-8 text-xl font-bold text-slate-900 dark:text-white">Highlights</h3>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {dest.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-2 text-slate-700 dark:text-slate-300">
+                <span className="mt-1 text-accent-500">★</span> {h}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {dest.slug === "varanasi" && <VaranasiSection />}
+      {dest.slug === "varanasi" ? <VaranasiSection /> : <DestinationSection dest={dest} />}
 
       {related.length > 0 && (
         <section className="bg-slate-50 py-14 dark:bg-slate-800">
