@@ -35,11 +35,6 @@ const subDests = dest?.subDestinations || [];
 export default function AndhraPradeshSection() {
   const [activeSub, setActiveSub] = useState(null);
 
-  const allGallery = subDests.flatMap((s) => [
-    s.image,
-    ...(s.gallery || []),
-  ]);
-
   return (
     <div className="mt-14 reveal">
       <div className="mb-12 text-center">
@@ -51,7 +46,6 @@ export default function AndhraPradeshSection() {
         </p>
       </div>
 
-      {/* Sub-destination grid */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {subDests.map((sub) => (
@@ -96,13 +90,8 @@ export default function AndhraPradeshSection() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-3">
-                    <Link
-                      href={`/andhra-pradesh/${sub.slug}`}
-                      className="text-sm font-semibold text-brand-600 hover:text-brand-700"
-                    >
-                      View Gallery →
-                    </Link>
+                  <div className="mt-4">
+                    <ImageGallery images={sub.gallery} name={sub.name} />
                   </div>
                 </div>
               )}
@@ -111,7 +100,6 @@ export default function AndhraPradeshSection() {
         </div>
       </div>
 
-      {/* Packages */}
       <div className="mx-auto mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
         <h3 className="mb-8 text-center text-2xl font-bold text-slate-900 dark:text-white">
           Curated Andhra Pradesh Packages
@@ -185,7 +173,6 @@ export default function AndhraPradeshSection() {
         </div>
       </div>
 
-      {/* Highlights */}
       <div className="mx-auto mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/5 dark:bg-slate-800">
           <div className="relative h-56 w-full sm:h-60">
@@ -214,21 +201,6 @@ export default function AndhraPradeshSection() {
           </div>
         </div>
       </div>
-
-      {/* Gallery */}
-      <section className="mt-16">
-        <div className="mb-8 text-center">
-          <span className="section-eyebrow">Gallery</span>
-          <h2 className="section-title">Capturing the Spirit of Andhra Pradesh</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
-            A visual journey through ancient temples, sacred hills and the divine
-            architecture of South India.
-          </p>
-        </div>
-        <div className="px-4 sm:px-6 lg:px-8">
-          <ImageGallery images={allGallery.length > 0 ? allGallery : dest.gallery} name="Andhra Pradesh" />
-        </div>
-      </section>
     </div>
   );
 }
