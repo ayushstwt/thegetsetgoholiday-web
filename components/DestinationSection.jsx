@@ -399,6 +399,28 @@ const destinationPackages = {
       icon: "🏮",
     },
   ],
+  "andhra-pradesh": [
+    {
+      slug: "andhra-tirupati",
+      image: "/andhra-pradesh/tripati-trimula/1.jpg",
+      title: "Tirupati Spiritual Journey",
+      duration: "3 Nights / 4 Days",
+      tags: ["Tirumala Darshan", "Tiruchanur"],
+      price: "₹9,000",
+      badge: "Popular",
+      icon: "🛕",
+    },
+    {
+      slug: "andhra-complete",
+      image: "/andhra-pradesh/ahobilam/1.jpg",
+      title: "Complete Andhra Temple Tour",
+      duration: "6 Nights / 7 Days",
+      tags: ["Ahobilam", "Srikalahasti", "Tirupati", "Lepakshi"],
+      price: "₹18,000",
+      badge: "Best Value",
+      icon: "✨",
+    },
+  ],
   shimla: [
     {
       slug: "shimla-manali",

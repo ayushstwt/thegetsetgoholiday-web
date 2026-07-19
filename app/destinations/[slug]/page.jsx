@@ -9,6 +9,7 @@ import NainitalSection from "../../../components/NainitalSection";
 import HaridwarSection from "../../../components/HaridwarSection";
 import DehradunSection from "../../../components/DehradunSection";
 import KeralaSection from "../../../components/KeralaSection";
+import AndhraPradeshSection from "../../../components/AndhraPradeshSection";
 import DestinationSection from "../../../components/DestinationSection";
 
 export function generateStaticParams() {
@@ -68,7 +69,7 @@ export default function DestinationDetail({ params }) {
         </div>
       </section>
 
-      {dest.slug === "varanasi" ? <VaranasiSection /> : dest.slug === "darjeeling" ? <DarjeelingSection /> : dest.slug === "rishikesh" ? <RishikeshSection /> : dest.slug === "nainital" ? <NainitalSection /> : dest.slug === "haridwar" ? <HaridwarSection /> : dest.slug === "dehradun" ? <DehradunSection /> : dest.slug === "kerala" ? <KeralaSection /> : <DestinationSection dest={dest} />}
+      {dest.slug === "varanasi" ? <VaranasiSection /> : dest.slug === "darjeeling" ? <DarjeelingSection /> : dest.slug === "rishikesh" ? <RishikeshSection /> : dest.slug === "nainital" ? <NainitalSection /> : dest.slug === "haridwar" ? <HaridwarSection /> : dest.slug === "dehradun" ? <DehradunSection /> : dest.slug === "kerala" ? <KeralaSection /> : dest.slug === "andhra-pradesh" ? <AndhraPradeshSection /> : <DestinationSection dest={dest} />}
 
       {related.length > 0 && (
         <section className="bg-slate-50 py-14 dark:bg-slate-800">
