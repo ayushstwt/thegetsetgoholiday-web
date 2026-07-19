@@ -20,7 +20,7 @@ const packages = [
   {
     title: "Family Vacations",
     desc: "Balanced itineraries with sightseeing, leisure and fun for every age group.",
-    slugs: ["goa", "dubai", "rajasthan", "thailand"],
+    slugs: ["goa", "dubai", "rajasthan", "bangkok-pattaya"],
     image: "/uploads/2026/04/goa.jpg",
     color: "from-brand-500 to-brand-700",
   },
@@ -41,7 +41,7 @@ const packages = [
   {
     title: "Group & Corporate Tours",
     desc: "Well-organised group travel and corporate offsites with seamless logistics.",
-    slugs: ["thailand", "dubai", "rajasthan", "goa"],
+    slugs: ["phuket-krabi", "dubai", "rajasthan", "goa"],
     image: "/uploads/2026/04/thailand.jpg",
     color: "from-indigo-500 to-purple-600",
   },
