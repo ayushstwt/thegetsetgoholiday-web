@@ -112,8 +112,16 @@ export default function HomePage() {
       </section>
 
       {/* International */}
-      <section className="py-16">
-        <div className="container-page reveal">
+      <section className="relative overflow-hidden py-16">
+        <div className="absolute inset-0">
+          <img
+            src="/images/home/switerland.jpg"
+            alt="International destinations"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/85 dark:bg-slate-900/85" />
+        </div>
+        <div className="container-page relative z-10 reveal">
           <div className="mb-10 text-center">
             <span className="section-eyebrow">International</span>
             <h2 className="section-title">Expertly Crafted Global Escapes</h2>
@@ -124,9 +132,31 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {international.slice(0, 9).map((d) => (
-              <DestinationCard key={d.slug} dest={d} />
-            ))}
+            {international.slice(0, 9).map((d) => {
+              const homeImage = {
+                "abu-dhabi": "/images/home/abudabihome.jpg",
+                "bali": "https://images.unsplash.com/photo-1671034456366-77aff6bd3316?auto=format&fit=crop&w=800&q=80",
+                "bangkok-pattaya": "/images/home/bankok.jpg",
+                "bhutan": "/images/home/bhutan.jpg",
+                "canada": "/images/home/canada.jpg",
+                "dubai": "/images/home/dubai.jpg",
+                "kazakhstan": "/images/home/kazakistan.jpg",
+                "laos": "https://images.unsplash.com/photo-1693039880389-62840065382c?auto=format&fit=crop&w=800&q=80",
+                "london": "/images/home/london.jpg",
+                "malaysia": "https://images.unsplash.com/photo-1566914447826-bf04e54bf1be?auto=format&fit=crop&w=800&q=80",
+                "maldives": "https://images.unsplash.com/photo-1777199663418-3dd126c9fd40?auto=format&fit=crop&w=800&q=80",
+                "mauritius": "https://images.unsplash.com/photo-1686740339586-391c79cba290?auto=format&fit=crop&w=800&q=80",
+                "paris": "https://images.unsplash.com/photo-1760281854309-3c5ea36d5d83?auto=format&fit=crop&w=800&q=80",
+                "philippines": "https://images.unsplash.com/photo-1750184698059-1f664fd21a48?auto=format&fit=crop&w=800&q=80",
+                "phuket-krabi": "https://images.unsplash.com/photo-1754295560175-86037557a4fd?auto=format&fit=crop&w=800&q=80",
+                "sri-lanka": "https://images.unsplash.com/photo-1751247026229-518bfec9b5e6?auto=format&fit=crop&w=800&q=80",
+                "switzerland": "/images/home/switerland.jpg",
+                "vietnam": "/images/home/vietnam.jpg",
+              }[d.slug];
+              return (
+                <DestinationCard key={d.slug} dest={{ ...d, image: homeImage || d.image }} />
+              );
+            })}
           </div>
           <div className="mt-10 text-center">
             <Link href="/destinations?type=international" className="btn-outline !text-brand-700 !border-brand-600 hover:!bg-brand-50 dark:!border-white/70 dark:!text-white dark:hover:!bg-white/10">
@@ -137,8 +167,16 @@ export default function HomePage() {
       </section>
 
       {/* Domestic */}
-      <section className="bg-slate-50 py-16 dark:bg-slate-800">
-        <div className="container-page reveal">
+      <section className="relative overflow-hidden py-16">
+        <div className="absolute inset-0">
+          <img
+            src="/images/domestic/kashmir/1.jpg"
+            alt="Indian destinations"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-50/85 dark:bg-slate-800/85" />
+        </div>
+        <div className="container-page relative z-10 reveal">
           <div className="mb-10 text-center">
             <span className="section-eyebrow">Domestic</span>
             <h2 className="section-title">Explore Incredible India</h2>
@@ -148,9 +186,27 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {domestic.slice(0, 8).map((d) => (
-              <DestinationCard key={d.slug} dest={d} />
-            ))}
+            {domestic.slice(0, 8).map((d) => {
+              const homeImage = {
+                "andhra-pradesh": "https://images.unsplash.com/photo-1741003415192-ea5c163aadd4?auto=format&fit=crop&w=800&q=80",
+                "darjeeling": "/images/domestic/darjeeling/1.jpg",
+                "dehradun": "/images/domestic/dehradun/1.jpg",
+                "goa": "/images/domestic/goa/1.jpg",
+                "haridwar": "/images/domestic/haridwar/1.jpg",
+                "kashmir": "/images/domestic/kashmir/1.jpg",
+                "kerala": "https://images.unsplash.com/photo-1772729134950-7db4b3a7be4e?auto=format&fit=crop&w=800&q=80",
+                "manali": "/images/domestic/manali/1.jpg",
+                "nainital": "/images/domestic/nainital/1.jpg",
+                "rajasthan": "https://images.unsplash.com/photo-1705861144929-91df892af5d6?auto=format&fit=crop&w=800&q=80",
+                "rishikesh": "/images/domestic/rishikesh/1.jpg",
+                "shimla": "/images/domestic/shimla/1.jpg",
+                "sikkim": "/images/domestic/sikkim/1.jpg",
+                "varanasi": "/images/domestic/varanasi/1.jpg",
+              }[d.slug];
+              return (
+                <DestinationCard key={d.slug} dest={{ ...d, image: homeImage || d.image }} />
+              );
+            })}
           </div>
           <div className="mt-10 text-center">
             <Link href="/destinations?type=domestic" className="btn-outline !text-brand-700 !border-brand-600 hover:!bg-brand-50 dark:!border-white/70 dark:!text-white dark:hover:!bg-white/10">
