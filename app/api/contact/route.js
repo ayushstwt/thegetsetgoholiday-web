@@ -12,10 +12,14 @@ export async function POST(request) {
       );
     }
 
-    await Promise.all([
-      sendContactConfirmation({ name, email, phone, destination, message }),
-      sendContactNotification({ name, email, phone, destination, message }),
-    ]);
+    try {
+      await Promise.all([
+        sendContactConfirmation({ name, email, phone, destination, message }),
+        sendContactNotification({ name, email, phone, destination, message }),
+      ]);
+    } catch (emailError) {
+      console.error('Email sending failed:', emailError);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
