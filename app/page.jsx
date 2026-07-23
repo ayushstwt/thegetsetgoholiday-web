@@ -9,6 +9,11 @@ import Icon from "../components/Icon";
 export default function HomePage() {
   const international = destinations.filter((d) => d.region === "international" && d.slug !== "paris");
   const domestic = destinations.filter((d) => d.region === "domestic");
+  const featuredDomestic = domestic.slice(0, 6);
+  const domesticBg = (() => {
+    const first = featuredDomestic[0];
+    return first ? (homeImageMap[first.slug] || first.image) : '/uploads/2026/04/india-taj-mahal-hero.jpg';
+  })();
 
   return (
     <>
@@ -151,7 +156,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden py-16">
         <div className="absolute inset-0">
           <img
-            src="/uploads/2026/04/india-taj-mahal-hero.jpg"
+            src={domesticBg}
             alt="Indian destinations"
             className="h-full w-full object-cover"
           />
@@ -167,7 +172,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {domestic.slice(0, 6).map((d) => {
+            {featuredDomestic.map((d) => {
               const homeImage = homeImageMap[d.slug];
               return (
                 <DestinationCard key={d.slug} dest={{ ...d, image: homeImage || d.image }} />
@@ -191,13 +196,13 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
-              <div key={s.title} className="card p-6">
-                <div className="mb-4 inline-flex rounded-xl bg-brand-50 p-3 text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">
+              <Link key={s.title} href={`/services/${s.slug}`} className="card p-6 group">
+                <div className="mb-4 inline-flex rounded-xl bg-brand-50 p-3 text-brand-600 transition group-hover:bg-brand-600 group-hover:text-white dark:bg-brand-500/15 dark:text-brand-300">
                   <Icon name={s.icon} />
                 </div>
                 <h3 className="font-semibold text-slate-900 dark:text-white">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{s.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { destinations } from "../../lib/data";
+import { packageDetails } from "../../lib/packageData";
 import DestinationCard from "../../components/DestinationCard";
 
 export const metadata = {
@@ -16,6 +17,7 @@ const packages = [
     slugs: ["maldives", "bali", "kashmir", "switzerland"],
     image: "/uploads/2026/04/maldives.jpg",
     color: "from-pink-500 to-rose-500",
+    detailSlug: "honeymoon-group-tours",
   },
   {
     title: "Family Vacations",
@@ -23,6 +25,7 @@ const packages = [
     slugs: ["goa", "dubai", "rajasthan", "bangkok-pattaya"],
     image: "/uploads/2026/04/goa.jpg",
     color: "from-brand-500 to-brand-700",
+    detailSlug: "family-vacations",
   },
   {
     title: "Adventure & Riders Tours",
@@ -30,6 +33,7 @@ const packages = [
     slugs: ["manali", "kashmir", "shimla", "switzerland"],
     image: "/uploads/2026/04/manali.jpg",
     color: "from-orange-500 to-accent-600",
+    detailSlug: "adventure-riders-tours",
   },
   {
     title: "Spiritual Journeys",
@@ -37,6 +41,7 @@ const packages = [
     slugs: ["rishikesh", "kerala", "rajasthan", "shimla"],
     image: "/uploads/2026/04/rishikesh.jpg",
     color: "from-emerald-500 to-teal-600",
+    detailSlug: "customized-tour-packages",
   },
   {
     title: "Group & Corporate Tours",
@@ -44,6 +49,7 @@ const packages = [
     slugs: ["phuket-krabi", "dubai", "rajasthan", "goa"],
     image: "/uploads/2026/04/thailand.jpg",
     color: "from-indigo-500 to-purple-600",
+    detailSlug: "corporate-tours",
   },
   {
     title: "International Escapes",
@@ -51,6 +57,7 @@ const packages = [
     slugs: ["paris", "switzerland", "bali", "dubai"],
     image: "/uploads/2026/04/paris.jpg",
     color: "from-cyan-500 to-blue-600",
+    detailSlug: "customized-tour-packages",
   },
 ];
 
@@ -96,12 +103,20 @@ export default function PackagesPage() {
                     <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">{p.title}</h2>
                     <p className="mt-1 max-w-2xl text-sm text-white/90">{p.desc}</p>
                   </div>
-                  <Link
-                    href="/contact"
-                    className="absolute right-5 top-5 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-brand-700 shadow transition hover:bg-white"
-                  >
-                    Enquire →
-                  </Link>
+                  <div className="absolute right-5 top-5 flex gap-2">
+                    <Link
+                      href={`/packages/${p.detailSlug}`}
+                      className="rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-brand-700 shadow transition hover:bg-white"
+                    >
+                      View Details →
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-accent-600 shadow transition hover:bg-white"
+                    >
+                      Enquire
+                    </Link>
+                  </div>
                 </div>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {items.map((d) => (

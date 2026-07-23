@@ -39,11 +39,6 @@ export default function ContactForm() {
       }
 
       setSubmitted(true);
-
-      const text =
-        `Name: ${form.name}%0APhone: ${form.phone}%0AEmail: ${form.email}` +
-        `%0ADestination: ${form.destination}%0AMessage: ${form.message}`;
-      window.open(`https://wa.me/918796042440?text=${text}`, "_blank");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -52,6 +47,9 @@ export default function ContactForm() {
   };
 
   if (submitted) {
+    const waText =
+      `Name: ${form.name}%0APhone: ${form.phone}%0AEmail: ${form.email}` +
+      `%0ADestination: ${form.destination}%0AMessage: ${form.message}`;
     return (
       <div className="rounded-xl bg-green-50 p-6 text-center dark:bg-green-900/20">
         <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 dark:bg-green-800/30">
@@ -63,11 +61,18 @@ export default function ContactForm() {
           Thank You, {form.name}!
         </h3>
         <p className="mt-2 text-sm text-green-700 dark:text-green-300">
-          Your enquiry has been sent. We&apos;ll get back to you shortly.
+          Your enquiry has been received. Our team will get back to you within the next few business hours.
         </p>
         <p className="mt-1 text-xs text-green-600 dark:text-green-400">
-          A confirmation email has been sent to {form.email}. WhatsApp chat has been opened in a new tab.
+          A confirmation email has been sent to {form.email}.
         </p>
+        <a
+          href={`https://wa.me/918796042440?text=${waText}`}
+          target="_blank"
+          className="mt-4 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-green-600"
+        >
+          Chat on WhatsApp
+        </a>
       </div>
     );
   }
@@ -107,7 +112,7 @@ export default function ContactForm() {
         placeholder="Tell us about your trip..." className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 focus:border-brand-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
       />
       <button type="submit" disabled={submitting} className="btn-primary w-full">
-        {submitting ? "Sending..." : "Send Enquiry via WhatsApp"}
+        {submitting ? "Sending..." : "Send Enquiry"}
       </button>
     </form>
   );

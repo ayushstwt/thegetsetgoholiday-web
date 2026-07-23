@@ -1,15 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { homeImageMap } from "../lib/data";
 
-export default function DestinationCard({ dest }) {
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1705861144929-91df892af5d6?auto=format&fit=crop&w=800&q=80";
+
+export default function DestinationCard({ dest, imageOverride }) {
+  const [imgSrc, setImgSrc] = useState(imageOverride || homeImageMap[dest.slug] || dest.image);
   return (
     <Link href={`/destinations/${dest.slug}`} className="card reveal group block">
       <div className="relative h-56 overflow-hidden">
         <Image
-          src={dest.image}
+          src={imgSrc}
           alt={dest.name}
           fill
           loading="lazy"
+          onError={() => setImgSrc(FALLBACK_IMAGE)}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover transition duration-500 group-hover:scale-110"
         />

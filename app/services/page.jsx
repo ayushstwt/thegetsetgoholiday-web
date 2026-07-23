@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { services } from "../../lib/data";
 import Icon from "../../components/Icon";
 
@@ -33,15 +34,18 @@ export default function ServicesPage() {
       <section className="py-16">
         <div className="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <div key={s.title} className="card flex gap-4 p-6">
+            <Link key={s.title} href={`/services/${s.slug}`} className="card flex gap-4 p-6 group">
               <div className="shrink-0 inline-flex rounded-xl bg-brand-50 p-3 text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">
                 <Icon name={s.icon} />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 dark:text-white">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{s.description}</p>
+                <span className="mt-3 inline-block text-sm font-semibold text-brand-600 opacity-0 transition group-hover:opacity-100">
+                  View Details →
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
