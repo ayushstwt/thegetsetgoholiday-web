@@ -72,9 +72,6 @@ export default function BlogDetail({ params }) {
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
               Our travel experts will craft a personalised itinerary just for you.
             </p>
-            <Link href="/contact" className="btn-primary mt-5">
-              Get a Free Quote
-            </Link>
           </div>
         </div>
       </article>

@@ -74,7 +74,7 @@ export default function PackagesPage() {
         <div className="container-page relative z-10 pb-10 text-white">
           <h1 className="text-4xl font-extrabold sm:text-5xl">Tour Packages</h1>
           <p className="mt-2 max-w-2xl text-white/90">
-            Curated holidays for every traveller — honeymoon, family, group,
+            Curated holidays for every traveller — honeymoon, family,
             spiritual and beyond.
           </p>
         </div>

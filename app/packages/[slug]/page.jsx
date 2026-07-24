@@ -182,28 +182,16 @@ export default function PackageDetailPage({ params }) {
         </section>
       )}
 
-      {pkg.popularDestinations && (
+      {pkg.popularDestinations?.honeymoon && (
         <section className="bg-slate-50 py-14 dark:bg-slate-800">
-          <div className="container-page grid gap-8 md:grid-cols-2">
-            <div>
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white">Popular Honeymoon Destinations</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {pkg.popularDestinations.honeymoon.map((d) => (
-                  <span key={d} className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm dark:bg-slate-700 dark:text-slate-200">
-                    {d}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white">Popular Group Tour Destinations</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {pkg.popularDestinations.group.map((d) => (
-                  <span key={d} className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm dark:bg-slate-700 dark:text-slate-200">
-                    {d}
-                  </span>
-                ))}
-              </div>
+          <div className="container-page">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">Popular Honeymoon Destinations</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {pkg.popularDestinations.honeymoon.map((d) => (
+                <span key={d} className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm dark:bg-slate-700 dark:text-slate-200">
+                  {d}
+                </span>
+              ))}
             </div>
           </div>
         </section>
